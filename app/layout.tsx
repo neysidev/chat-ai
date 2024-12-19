@@ -11,7 +11,9 @@ export const metadata = siteMetadata
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={clsx(openSans.variable, "antialiased")}>{children}</body>
+      <body className={clsx(openSans.variable, "antialiased bg-neutral-100")}>
+        {children}
+      </body>
     </html>
   )
 }

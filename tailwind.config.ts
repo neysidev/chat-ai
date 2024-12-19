@@ -7,7 +7,17 @@ export default {
     "./app/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        rotate360: "rotate360 0.75s linear infinite",
+      },
+      keyframes: {
+        rotate360: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+    },
   },
   plugins: [],
 } satisfies Config
