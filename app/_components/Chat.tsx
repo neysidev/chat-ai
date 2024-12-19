@@ -7,7 +7,7 @@ export default function Chat() {
   const [prompt, setPrompt] = useState<string>("")
 
   return (
-    <section className="mt-16 space-y-2 bg-white shadow-sm rounded-xl border p-4 border-neutral-150">
+    <section className="sm:mt-16 w-full space-y-2 bg-white shadow-sm rounded-xl border p-4 border-neutral-150">
       <textarea
         rows={5}
         value={prompt}
@@ -18,7 +18,7 @@ export default function Chat() {
       />
 
       <footer className="flex text-sm justify-between">
-        <div className="space-x-5 flex">
+        <div className="space-x-2 sm:space-x-5 flex">
           <button className="flex space-x-1 font-medium text-neutral-600 transition-colors select-none hover:text-neutral-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ export default function Chat() {
               />
             </svg>
 
-            <span>Add Attachment</span>
+            <span className="hidden sm:block">Add Attachment</span>
           </button>
 
           <button className="flex space-x-1 font-medium text-neutral-600 transition-colors select-none hover:text-neutral-800">
@@ -54,7 +54,7 @@ export default function Chat() {
               />
             </svg>
 
-            <span>Use Image</span>
+            <span className="hidden sm:block">Use Image</span>
           </button>
         </div>
         <div className="space-x-2 flex items-center">

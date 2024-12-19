@@ -27,7 +27,7 @@ export default function Prompts() {
 
   return (
     <>
-      <ul className="mt-6 grid grid-cols-4 gap-4">
+      <ul className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
         {prompts.map(({ text, icon }, index) => (
           <li
             key={index}

@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function Sidebar() {
   return (
-    <aside className="p-4 flex flex-col justify-between items-center">
+    <aside className="p-4 hidden sm:flex flex-col justify-between items-center">
       <div className="flex flex-col items-center space-y-5">
         <Image
           src="/logo.png"
