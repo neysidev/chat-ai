@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import Icon from "@/components/common/Icon"
+import Tooltip from "@/components/common/Tooltip"
 
 const maxLength = 1000
 
@@ -36,9 +37,11 @@ export default function Chat() {
             {prompt.length}/{maxLength}
           </span>
 
-          <button className="rounded-xl p-1.5 text-white bg-gradient-to-t from-purple-900 to-purple-600">
-            <Icon name="arrowUp" size={16} strokeWidth={2} />
-          </button>
+          <Tooltip id="send" content="Send" place="top">
+            <button className="rounded-xl p-1.5 text-white bg-gradient-to-t from-purple-900 to-purple-600">
+              <Icon name="arrowUp" size={16} strokeWidth={2} />
+            </button>
+          </Tooltip>
         </div>
       </footer>
     </section>
