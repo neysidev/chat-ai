@@ -1,6 +1,8 @@
+import Link from "next/link"
+
 export default function NewChat() {
   return (
-    <button className="bg-white rounded-xl shadow-sm border p-1">
+    <Link href="/" className="bg-white rounded-xl shadow-sm border p-1">
       <svg
         width={24}
         height={24}
@@ -23,6 +25,6 @@ export default function NewChat() {
           strokeLinejoin="round"
         />
       </svg>
-    </button>
+    </Link>
   )
 }
