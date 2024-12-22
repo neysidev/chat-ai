@@ -1,10 +1,10 @@
 import Image from "next/image"
-import NewChat from "./NewChat"
-import PageLink from "./PageLink"
-import ActionsButtons from "./ActionsButtons"
 import Link from "next/link"
-import Icon from "../common/Icon"
+
 import Tooltip from "../common/Tooltip"
+import ActionsButtons from "./ActionsButtons"
+import NewChat from "./NewChat"
+import SettingsButton from "./SettingsButton"
 
 export default function Sidebar() {
   return (
@@ -21,12 +21,7 @@ export default function Sidebar() {
         <ActionsButtons />
       </div>
       <div className="flex flex-col items-center">
-        <PageLink
-          label="Settings"
-          value="settings"
-          href="/settings"
-          icon={<Icon name="settings" />}
-        />
+        <SettingsButton />
         <hr className="w-full mt-2 pb-4 border-dashed border-neutral-200" />
         <Tooltip place="right" content="Profile" id="profile">
           <Link href="/profile">

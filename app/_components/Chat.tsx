@@ -20,7 +20,7 @@ export default function Chat() {
         onChange={e => setPrompt(e.target.value)}
       />
 
-      <footer className="flex text-sm justify-between">
+      <footer className="flex text-sm items-end justify-between">
         <AddAttachment />
 
         <div className="space-x-2 flex items-center">
