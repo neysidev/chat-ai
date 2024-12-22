@@ -1,4 +1,4 @@
-import Chat from "./_components/Chat"
+import Chat from "../components/common/Chat"
 import Header from "./_components/Header"
 import Prompts from "./_components/Prompts"
 
