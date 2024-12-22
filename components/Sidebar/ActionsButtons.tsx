@@ -1,5 +1,6 @@
 import Icon from "../common/Icon"
 import PageLink from "./PageLink"
+import SearchButton from "./SearchButton"
 
 export default function ActionsButtons() {
   return (
@@ -10,12 +11,7 @@ export default function ActionsButtons() {
         label="Home"
         value="home"
       />
-      <PageLink
-        href="/search"
-        icon={<Icon name="search" />}
-        label="Search"
-        value="search"
-      />
+      <SearchButton />
       <PageLink
         href="/explore"
         icon={<Icon name="explore" />}
