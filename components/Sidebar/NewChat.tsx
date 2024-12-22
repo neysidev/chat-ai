@@ -1,9 +1,27 @@
 import Link from "next/link"
 import Tooltip from "../common/Tooltip"
+import { useHotkeys } from "react-hotkeys-hook"
+import { useRouter } from "next/navigation"
+import Kbd from "../common/Kbd"
 
 export default function NewChat() {
+  const router = useRouter()
+
+  useHotkeys("shift+n", () => router.push("/"))
+
   return (
-    <Tooltip id="new-chat-tooltip" content="New Chat" place="right">
+    <Tooltip
+      id="new-chat-tooltip"
+      content={
+        <div className="flex space-x-1 items-center">
+          <span className="font-medium">New Chat</span>{" "}
+          <span className="text-xs">
+            <Kbd>shift</Kbd>+<Kbd>N</Kbd>
+          </span>
+        </div>
+      }
+      place="right"
+    >
       <Link href="/" className="bg-white block rounded-xl shadow-sm border p-1">
         <svg
           width={24}
