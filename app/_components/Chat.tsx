@@ -2,6 +2,7 @@
 import { useState } from "react"
 import Icon from "@/components/common/Icon"
 import Tooltip from "@/components/common/Tooltip"
+import AddAttachment from "./AddAttachment"
 
 const maxLength = 1000
 
@@ -20,17 +21,7 @@ export default function Chat() {
       />
 
       <footer className="flex text-sm justify-between">
-        <div className="space-x-2 sm:space-x-5 flex">
-          <button className="flex space-x-1 font-medium text-neutral-600 transition-colors select-none hover:text-neutral-800">
-            <Icon name="plus" size={20} />
-            <span className="hidden sm:block">Add Attachment</span>
-          </button>
-
-          <button className="flex space-x-1 font-medium text-neutral-600 transition-colors select-none hover:text-neutral-800">
-            <Icon name="image" size={20} />
-            <span className="hidden sm:block">Use Image</span>
-          </button>
-        </div>
+        <AddAttachment />
 
         <div className="space-x-2 flex items-center">
           <span className="ml-auto text-neutral-500 font-medium">
