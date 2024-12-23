@@ -7,7 +7,7 @@ export default function Search() {
   const { search, setSearch } = useExploreStore()
 
   return (
-    <section className="sticky -top-4 py-4 space-y-4 bg-neutral-100">
+    <section className="sticky top-10 py-4 space-y-4 bg-neutral-100">
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
           Search GPTs
