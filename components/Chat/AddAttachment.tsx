@@ -1,6 +1,6 @@
 "use client"
 
-import FileBox from "@/components/common/FileBox"
+import FileBox from "@/components/Chat/FileBox"
 import Icon from "@/components/common/Icon"
 import { useMessageStore } from "@/stores/messageStore"
 

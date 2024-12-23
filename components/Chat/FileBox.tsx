@@ -1,5 +1,5 @@
 import { File } from "@/stores/messageStore"
-import Icon from "./Icon"
+import Icon from "../common/Icon"
 import { formatBytes } from "@/utils/format"
 
 interface FileBoxProps {

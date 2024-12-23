@@ -1,5 +1,8 @@
 import { Message } from "@/stores/chatStore"
 
+export const maxLines = 5
+export const maxLength = 1000
+
 export const MESSAGES: Message[] = [
   {
     role: "user",

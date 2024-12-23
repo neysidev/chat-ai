@@ -13,7 +13,9 @@ interface Chat {
 
 interface ChatStore {
   chats: Chat[] // All chats as an array
+  prompt: string // Chat prompt
   activeChatId: string | null // Currently active chat ID
+  setPrompt: (prompt: string) => void
   setActiveChatId: (id: string) => void
   addMessage: (chatId: string, message: Message) => void
   createNewChat: (id: string, title: string) => void
@@ -22,6 +24,9 @@ interface ChatStore {
 export const useChatStore = create<ChatStore>(set => ({
   chats: [],
   activeChatId: null,
+
+  prompt: "",
+  setPrompt: prompt => set({ prompt }),
 
   // Set the active chat ID
   setActiveChatId: id => set({ activeChatId: id }),

@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react"
 
 import { MESSAGES } from "@/fixtures/chats"
-import Chat from "@/components/common/Chat"
-import ChatNote from "@/components/common/ChatNote"
+import Chat from "@/components/Chat"
+import ChatNote from "@/components/Chat/ChatNote"
 import Messages from "@/components/common/Messages"
 
 export default function ChatPage() {
