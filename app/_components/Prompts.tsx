@@ -31,9 +31,10 @@ export default function Prompts() {
         {prompts.map(({ text, icon }, index) => (
           <li
             key={index}
-            className="text-xs border rounded-xl p-4 h-32 flex flex-col font-medium select-none cursor-pointer transition hover:bg-white hover:shadow-sm"
+            title={text}
+            className="text-xs border rounded-xl p-4 space-y-2 md:space-y-6 flex flex-col font-medium select-none cursor-pointer transition hover:bg-white hover:shadow-sm"
           >
-            <span className="flex-1">{text}</span>
+            <span className="flex-1 line-clamp-2">{text}</span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"

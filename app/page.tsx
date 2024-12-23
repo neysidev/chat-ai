@@ -5,7 +5,7 @@ import Prompts from "./_components/Prompts"
 export default function Home() {
   return (
     <>
-      <div className="w-full flex-1 flex flex-col justify-center">
+      <div className="w-full flex-1 mb-8 flex flex-col justify-center">
         <Header />
         <Prompts />
       </div>
