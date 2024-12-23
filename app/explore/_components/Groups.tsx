@@ -2,7 +2,7 @@ import GroupItem from "./GroupItem"
 
 export default function Groups() {
   return (
-    <div className="pt-4 space-y-8">
+    <div data-title="Categories" className="pt-4 space-y-8">
       <GroupItem
         title="Trending"
         value="trending"
