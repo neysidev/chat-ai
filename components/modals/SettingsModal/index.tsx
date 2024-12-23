@@ -19,7 +19,7 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
       open={isOpen}
       as="div"
       transition
-      className="fixed inset-0 flex w-screen items-center justify-center bg-black/50 p-4 transition duration-300 ease-out data-[closed]:opacity-0"
+      className="fixed inset-0 flex w-screen z-10 items-center justify-center bg-black/50 p-4 transition duration-300 ease-out data-[closed]:opacity-0"
       onClose={onClose}
     >
       <div className="fixed inset-0 w-screen overflow-y-auto p-4">
