@@ -1,4 +1,4 @@
-import Groups from "./_components/Groups"
+import Categories from "./_components/Categories"
 import Header from "./_components/Header"
 import Search from "./_components/Search"
 
@@ -7,7 +7,7 @@ export default function Explore() {
     <div className="py-16">
       <Header />
       <Search />
-      <Groups />
+      <Categories />
     </div>
   )
 }

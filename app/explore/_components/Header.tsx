@@ -1,9 +1,6 @@
 export default function Header() {
   return (
-    <header
-      data-title="Header"
-      className="transition-all space-y-2 text-center sm:w-4/5 md:w-2/3 mx-auto"
-    >
+    <header className="transition-all space-y-2 text-center sm:w-4/5 md:w-2/3 mx-auto">
       <h1 className="transition-all text-3xl md:text-4xl font-semibold">
         Explore
       </h1>

@@ -7,10 +7,7 @@ export default function Search() {
   const { search, setSearch } = useExploreStore()
 
   return (
-    <div
-      data-title="Search"
-      className="sticky -top-4 py-4 space-y-4 bg-neutral-100"
-    >
+    <section className="sticky -top-4 py-4 space-y-4 bg-neutral-100">
       <div className="relative">
         <label htmlFor="search-input" className="sr-only">
           Search GPTs
@@ -30,6 +27,6 @@ export default function Search() {
           className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-600 pointer-events-none"
         />
       </div>
-    </div>
+    </section>
   )
 }

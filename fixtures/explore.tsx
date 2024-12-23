@@ -181,6 +181,39 @@ export const GPTS = {
     },
   ],
 }
-
 export const tabIds = TABS.map(tab => tab.value)
 export type GptTypes = keyof typeof GPTS
+
+type Section = {
+  title: string
+  value: GptTypes
+  description: string
+}
+
+export const SECTIONS: Section[] = [
+  {
+    title: "Trending",
+    value: "trending",
+    description: "Most popular GPTs by our community",
+  },
+  {
+    title: "Productivity",
+    value: "productivity",
+    description: "Increase your efficiency",
+  },
+  {
+    title: "Education",
+    value: "education",
+    description: "Explore new ideas, revisit existing skills",
+  },
+  {
+    title: "Lifestyle",
+    value: "lifestyle",
+    description: "Get tips on travel, workouts, style, food, and more",
+  },
+  {
+    title: "Programming",
+    value: "programming",
+    description: "Write code, debug, test, and learn",
+  },
+]
