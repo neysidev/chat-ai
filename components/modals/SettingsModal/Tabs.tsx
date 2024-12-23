@@ -27,14 +27,14 @@ export default function Tabs() {
           <button
             onClick={() => setActiveTab(value)}
             className={clsx(
-              "flex space-x-2 w-full text-left transition font-medium items-center text-sm rounded-md p-2 pr-4",
+              "flex sm:space-x-2 w-full text-left transition font-medium items-center text-sm rounded-md p-2 sm:pr-4",
               activeTab === value
                 ? "bg-neutral-100"
                 : "opacity-75 hover:opacity-100"
             )}
           >
             <Icon name={icon} size={18} />
-            <span className="flex-1">{name}</span>
+            <span className="hidden sm:block flex-1">{name}</span>
           </button>
         </li>
       ))}

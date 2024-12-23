@@ -16,11 +16,6 @@ export default function PersonalizedContent() {
         <li>“What do you remember about me?”</li>
         <li>“Where did we leave off on my last project?”</li>
       </ul>
-      <div className="pt-2">
-        <button className="border font-medium min-w-[95px] border-red-600 text-red-600 px-3 py-1.5 rounded-full transition hover:bg-red-50">
-          Clear memories
-        </button>
-      </div>
     </div>
   )
 }
