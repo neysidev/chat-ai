@@ -17,16 +17,15 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 
       <main
         className={clsx(
-          "flex-1 sm:p-4 max-h-screen overflow-y-auto",
+          "flex-1 sm:p-4 max-h-screen flex flex-col overflow-y-auto",
           isHomePage && "sm:grid sm:place-items-center"
         )}
       >
         <MenuButton />
         <section
           className={clsx(
-            "max-w-3xl p-4 sm:p-0 min-w-3xl mx-auto h-full relative",
-            isHomePage &&
-              "flex flex-col h-full items-start justify-between sm:h-auto"
+            "max-w-3xl p-4 sm:p-0 min-w-3xl mx-auto flex-1 relative",
+            isHomePage && "flex flex-col items-start justify-between sm:h-auto"
           )}
         >
           {children}
