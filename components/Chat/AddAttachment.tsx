@@ -1,8 +1,8 @@
 "use client"
 
-import FileBox from "@/components/Chat/FileBox"
+import { FileType, useMessageStore } from "@/stores/messageStore"
+import Attachment from "@/components/Chat/Attachment"
 import Icon from "@/components/common/Icon"
-import { useMessageStore } from "@/stores/messageStore"
 
 export default function AddAttachment() {
   const { file, addFile, deleteFile } = useMessageStore()
@@ -12,10 +12,9 @@ export default function AddAttachment() {
       const uploadedFile = event.target.files[0]
 
       const fileData = {
-        type: uploadedFile.type,
+        type: uploadedFile.type as FileType,
         name: uploadedFile.name,
         size: uploadedFile.size,
-        extension: uploadedFile.name.split(".").pop() || "unknown",
       }
 
       addFile(fileData)
@@ -25,7 +24,7 @@ export default function AddAttachment() {
   return (
     <>
       {file ? (
-        <FileBox file={file} onDelete={deleteFile} />
+        <Attachment file={file} onDelete={deleteFile} />
       ) : (
         <>
           <label
