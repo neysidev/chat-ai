@@ -2,12 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.system-message {
-  @apply space-y-2 leading-relaxed;
-}
-.system-message code {
-  @apply rounded-lg text-xs bg-neutral-50;
-}
-.system-message ul {
-  @apply list-disc list-inside;
+@layer components {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .system-message {
+    @apply space-y-2 leading-relaxed;
+  }
+  .system-message code {
+    @apply rounded-lg text-xs bg-neutral-50;
+  }
+  .system-message ul {
+    @apply list-disc list-inside;
+  }
 }
