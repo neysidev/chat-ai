@@ -1,11 +1,18 @@
 import { create } from "zustand"
 
+export type SettingsTab =
+  | "general"
+  | "personalized"
+  | "speech"
+  | "dataControls"
+  | "security"
+
 interface SettingsStore {
-  activeTab: string
-  setActiveTab: (id: string) => void
+  activeTab: SettingsTab
+  setActiveTab: (tab: SettingsTab) => void
 }
 
 export const useSettingsStore = create<SettingsStore>(set => ({
   activeTab: "general",
-  setActiveTab: id => set({ activeTab: id }),
+  setActiveTab: tab => set({ activeTab: tab }),
 }))

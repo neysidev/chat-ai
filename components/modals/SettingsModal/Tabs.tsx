@@ -1,11 +1,11 @@
+import clsx from "clsx"
 import Icon from "@/components/common/Icon"
 import { IconName } from "@/components/common/icons"
-import { useSettingsStore } from "@/stores/settingsStore"
-import clsx from "clsx"
+import { SettingsTab, useSettingsStore } from "@/stores/settingsStore"
 
 interface Item {
   name: string
-  value: string
+  value: SettingsTab
   icon: IconName
 }
 
