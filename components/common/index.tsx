@@ -1,6 +1,6 @@
+export { default as Attachment } from "../Chat/Attachment"
 export { default as Chat } from "../Chat"
 export { default as ChatNote } from "../Chat/ChatNote"
-export { default as FileBox } from "../Chat/FileBox"
 export { default as Icon } from "./Icon"
 export { default as Kbd } from "./Kbd"
 export { default as Layout } from "./Layout"

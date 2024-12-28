@@ -1,12 +1,8 @@
 import { IconName, icons } from "./icons"
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: IconName
   size?: number
-  fill?: string
-  stroke?: string
-  strokeWidth?: number
-  className?: string
 }
 
 export default function Icon({
@@ -15,18 +11,13 @@ export default function Icon({
   stroke = "currentColor",
   fill = "none",
   strokeWidth = 1.5,
-  className,
+  ...rest
 }: IconProps) {
-  const IconElement = icons[name]
-
-  if (!icons[name]) {
-    throw new Error(`Icon ${name} not found`)
-  }
+  const IconPath = icons[name]
 
   return (
     <svg
       aria-label={name}
-      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -34,8 +25,9 @@ export default function Icon({
       fill={fill}
       stroke={stroke}
       strokeWidth={strokeWidth}
+      {...rest}
     >
-      <IconElement />
+      <IconPath />
     </svg>
   )
 }
