@@ -6,41 +6,59 @@ export const maxLength = 1000
 export const MESSAGES: Message[] = [
   {
     role: "user",
-    content: "Can you show me how to implement a basic React component?",
+    content:
+      "What are some effective strategies for optimizing front-end performance in React?",
   },
   {
     role: "system",
-    content:
-      "Sure! Here's a simple example of a React component that displays a greeting message.\n ```jsx\nimport React from 'react';\n\nconst Greeting = () => {\n  return <h1>Hello, welcome to my site!</h1>;\n};\n\nexport default Greeting;\n```",
+    content: `
+Effective strategies for optimizing front-end performance in React:
+- \`Code-splitting\`: Split your app into smaller chunks for faster loading.
+- \`Lazy loading\`: Load components only when they are needed.
+- \`Memoization\`: Use \`React.memo()\` or \`useMemo()\` to prevent unnecessary re-renders.
+- \`Avoid unnecessary re-renders\`: Use \`shouldComponentUpdate\` or \`React.memo()\` to prevent re-renders when not needed.
+    `,
+  },
+  {
+    role: "user",
+    content: "Can you show me an example of lazy loading a component?",
+  },
+  {
+    role: "system",
+    content: `
+Here's an example of lazy loading a component in React:
+\`\`\`javascript
+import React, { Suspense, lazy } from 'react';
+
+const LazyComponent = lazy(() => import('./LazyComponent'));
+
+const App = () => (
+  <div>
+    <h1>React App</h1>
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyComponent />
+    </Suspense>
+  </div>
+);
+
+export default App;
+\`\`\`
+This will load \`LazyComponent\` only when it's required.
+  `,
   },
   {
     role: "user",
     content:
-      "That looks great! Can you add a button that changes the greeting message when clicked?",
+      "Can you provide a visual representation of lazy loading in React?",
   },
   {
     role: "system",
-    content:
-      "Absolutely! Here's the updated version with a button that changes the message.\n```jsx\nimport React, { useState } from 'react';\n\nconst Greeting = () => {\n  const [message, setMessage] = useState('Hello, welcome to my site!');\n\n  const changeMessage = () => {\n    setMessage('Thanks for clicking the button!');\n  };\n\n  return (\n    <div>\n      <h1>{message}</h1>\n      <button onClick={changeMessage}>Click me</button>\n    </div>\n  );\n};\n\nexport default Greeting;\n```",
-  },
-  {
-    role: "user",
-    content:
-      "Looks good! Can you share a quick guide on how to use hooks in React?",
-  },
-  {
-    role: "system",
-    content:
-      "Sure! Here's a quick list of common React hooks and how they are used:\n- `useState`: Allows you to add state to your functional components.\n- `useEffect`: Used for side effects such as fetching data, subscribing to events, etc.\n- `useContext`: Lets you subscribe to React context without needing to pass props manually.\n- `useReducer`: An alternative to `useState`, more suitable for complex state logic.\n- `useRef`: Allows you to access a DOM element or store a mutable value.",
-  },
-  {
-    role: "user",
-    content:
-      "That's helpful! Can you show me an image of a React component lifecycle?",
-  },
-  {
-    role: "system",
-    content:
-      "Here’s an image that illustrates the React component lifecycle.\n![React Component Lifecycle](https://cdn-media-1.freecodecamp.org/images/1*_drMYY_IEgboMS4RhvC-lQ.png)",
+    content: `
+Here’s an image illustrating lazy loading in React:
+
+{
+  "prompt": "A visual representation of lazy loading in React, showing how components are loaded only when needed. Include components such as \`Suspense\` and \`lazy()\` with a loading indicator."
+}
+  `,
   },
 ]

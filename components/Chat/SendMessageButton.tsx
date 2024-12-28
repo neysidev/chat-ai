@@ -6,13 +6,15 @@ import { Icon, Tooltip } from "@/components/common"
 
 export default function SendMessageButton() {
   const router = useRouter()
-  const { prompt, addMessage } = useChatStore()
+  const { prompt, createNewChat, setPrompt } = useChatStore()
 
   const onSubmit = () => {
     if (prompt.trim().length === 0) return
 
     const id = generateRandomId()
-    addMessage(id, { role: "user", content: prompt })
+    createNewChat(id, prompt, true, [{ role: "user", content: prompt }])
+
+    setPrompt("")
     router.push(`/chat/${id}`)
   }
 

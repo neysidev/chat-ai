@@ -24,7 +24,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         <MenuButton />
         <section
           className={clsx(
-            "max-w-3xl p-4 sm:p-0 min-w-3xl mx-auto flex-1 relative",
+            "lg:max-w-3xl p-4 sm:p-0 lg:min-w-[48rem] max-w-full mx-auto flex-1 relative",
             isHomePage && "flex flex-col items-start justify-between sm:h-auto"
           )}
         >

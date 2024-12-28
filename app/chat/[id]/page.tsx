@@ -1,14 +1,22 @@
 "use client"
 
+import { useParams } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
-import { MESSAGES } from "@/fixtures/chats"
 import Chat from "@/components/Chat"
 import ChatNote from "@/components/Chat/ChatNote"
 import Messages from "@/components/common/Messages"
 import ScrollToBottom from "@/components/Chat/ScrollToBottom"
 
+import useChat from "./_hooks/useChat"
+import { useChatStore } from "@/stores/chatStore"
+import { MESSAGES } from "@/fixtures/chats"
+
 export default function ChatPage() {
+  const { id: chatId } = useParams<{ id: string }>()
+  const { isLoading, messages } = useChat({ chatId })
+  const { addMessage } = useChatStore()
+
   const messagesRef = useRef<HTMLDivElement>(null)
 
   const [isScrollVisible, setIsScrollVisible] = useState(false)
@@ -18,6 +26,20 @@ export default function ChatPage() {
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight
     }
   }, [])
+
+  useEffect(() => {
+    handleAddChat()
+  }, [chatId])
+
+  const handleAddChat = () => {
+    if (!chatId) return
+
+    setTimeout(() => {
+      addMessage(chatId, MESSAGES[3])
+    }, 2000)
+  }
+
+  console.log(messages)
 
   const handleScroll = () => {
     const container = messagesRef.current
@@ -46,7 +68,7 @@ export default function ChatPage() {
         onScroll={handleScroll}
         className="flex-1 overflow-y-auto no-scrollbar"
       >
-        <Messages messages={MESSAGES} />
+        <Messages messages={messages} isLoading={isLoading} />
       </div>
       <div className="relative">
         <ScrollToBottom isVisible={isScrollVisible} onClick={scrollToBottom} />
