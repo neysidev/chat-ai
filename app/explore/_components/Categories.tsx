@@ -3,7 +3,7 @@ import { GPTS, SECTIONS } from "@/fixtures/explore"
 
 export default function Categories() {
   return (
-    <section className="pt-4 space-y-8">
+    <section className="pt-8 space-y-8">
       {SECTIONS.map(section => (
         <section key={section.value} className="space-y-2">
           <header>
