@@ -1,3 +1,5 @@
+export const PROMPTS_COUNT = 4
+
 export interface Prompt {
   text: string
   icon: React.ReactElement
