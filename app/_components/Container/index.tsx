@@ -1,5 +1,5 @@
-import Header from "./Header"
-import Prompts from "./Prompts"
+import Header from "../Header"
+import Prompts from "../Prompts"
 
 export default function Container() {
   return (
