@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const useTypingEffect = (
   text: string,
-  duration: number = 20,
+  duration: number = 5,
   isTypeByLetter = true
 ) => {
   const [currentPosition, setCurrentPosition] = useState(0)

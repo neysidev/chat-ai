@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 import { useChatStore } from "@/stores/chatStore"
 import { generateRandomId } from "@/utils/random"
@@ -6,16 +6,28 @@ import { Icon, Tooltip } from "@/components/common"
 
 export default function SendMessageButton() {
   const router = useRouter()
-  const { prompt, createNewChat, setPrompt } = useChatStore()
+  const pathname = usePathname()
+  const { prompt, createNewChat, addMessage, setMessageLoading, setPrompt } =
+    useChatStore()
 
   const onSubmit = () => {
     if (prompt.trim().length === 0) return
 
-    const id = generateRandomId()
-    createNewChat(id, prompt, true, [{ role: "user", content: prompt }])
-
+    const trimmed = prompt.trim()
     setPrompt("")
-    router.push(`/chat/${id}`)
+
+    const chatIdFromPath = pathname.startsWith("/chat/")
+      ? pathname.split("/")[2]
+      : null
+
+    if (chatIdFromPath) {
+      addMessage(chatIdFromPath, { role: "user", content: trimmed })
+      setMessageLoading(chatIdFromPath, true)
+    } else {
+      const id = generateRandomId()
+      createNewChat(id, trimmed, true, [{ role: "user", content: trimmed }])
+      router.push(`/chat/${id}`)
+    }
   }
 
   return (

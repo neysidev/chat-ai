@@ -7,16 +7,17 @@ import Chat from "@/components/Chat"
 import ChatNote from "@/components/Chat/ChatNote"
 import Messages from "@/components/common/Messages"
 import ScrollToBottom from "@/components/Chat/ScrollToBottom"
+import { sendChatCompletion } from "@/services/chat"
+import { useChatStore } from "@/stores/chatStore"
 
 import useChat from "./_hooks/useChat"
-import { useChatStore } from "@/stores/chatStore"
-import { MESSAGES } from "@/fixtures/chats"
 import PageWrapper from "@/app/page-wrapper"
 
 export default function ChatPage() {
   const { id: chatId } = useParams<{ id: string }>()
   const { isLoading, messages } = useChat({ chatId })
-  const { addMessage } = useChatStore()
+  const { addMessage, setMessageLoading } = useChatStore()
+  const fetchingRef = useRef(false)
 
   const messagesRef = useRef<HTMLDivElement>(null)
 
@@ -26,21 +27,31 @@ export default function ChatPage() {
     if (messagesRef.current) {
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight
     }
-  }, [])
+  }, [messages])
 
   useEffect(() => {
-    handleAddChat()
-  }, [chatId])
+    if (!chatId || !messages.length || !isLoading || fetchingRef.current) return
+    const lastMessage = messages[messages.length - 1]
+    if (lastMessage?.role !== "user") return
 
-  const handleAddChat = () => {
-    if (!chatId) return
-
-    setTimeout(() => {
-      addMessage(chatId, MESSAGES[3])
-    }, 2000)
-  }
-
-  console.log(messages)
+    fetchingRef.current = true
+    sendChatCompletion({ messages })
+      .then(result => {
+        addMessage(chatId, { role: "assistant", content: result.content })
+      })
+      .catch(err => {
+        const message =
+          err instanceof Error ? err.message : "Something went wrong"
+        addMessage(chatId, {
+          role: "assistant",
+          content: `Sorry, something went wrong: ${message}`,
+        })
+      })
+      .finally(() => {
+        setMessageLoading(chatId, false)
+        fetchingRef.current = false
+      })
+  }, [chatId, messages, isLoading, addMessage, setMessageLoading])
 
   const handleScroll = () => {
     const container = messagesRef.current
