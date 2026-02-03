@@ -10,13 +10,15 @@ export default function Sidebar() {
   return (
     <aside className="p-4 hidden sm:flex flex-col justify-between items-center">
       <div className="flex flex-col items-center space-y-5">
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={40}
-          height={40}
-          className="rounded-xl"
-        />
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="rounded-xl"
+          />
+        </Link>
         <NewChat />
         <ActionsButtons />
       </div>
