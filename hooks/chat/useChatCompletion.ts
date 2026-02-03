@@ -14,7 +14,7 @@ interface UseChatCompletionParams {
  * Sends chat completion when the last message is from the user.
  * Updates the store with the assistant response or error.
  */
-export default function useChatCompletion({
+export function useChatCompletion({
   chatId,
   messages,
   isLoading,

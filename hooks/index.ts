@@ -1,2 +1,4 @@
-export { default as useTypingEffect } from "./useTypingEffect"
-export { useMessagesScroll } from "./useMessagesScroll"
+export { useChat } from "./chat/useChat"
+export { useChatCompletion } from "./chat/useChatCompletion"
+export { useMessagesScroll } from "./messages/useMessagesScroll"
+export { useTypingEffect } from "./messages/useTypingEffect"

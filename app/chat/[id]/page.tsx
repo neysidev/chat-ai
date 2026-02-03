@@ -2,15 +2,12 @@
 
 import { useParams } from "next/navigation"
 
-import { useMessagesScroll } from "@/hooks"
+import { useChat, useChatCompletion, useMessagesScroll } from "@/hooks"
 import Chat from "@/components/Chat"
 import ChatNote from "@/components/Chat/ChatNote"
 import Messages from "@/components/common/Messages"
 import ScrollToBottom from "@/components/Chat/ScrollToBottom"
 import PageWrapper from "@/app/page-wrapper"
-
-import useChat from "./_hooks/useChat"
-import useChatCompletion from "./_hooks/useChatCompletion"
 
 export default function ChatPage() {
   const { id: chatId } = useParams<{ id: string }>()

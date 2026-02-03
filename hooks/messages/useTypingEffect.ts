@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useTypingEffect = (
+export const useTypingEffect = (
   text: string,
   duration: number = 5,
   isTypeByLetter = true
@@ -26,5 +26,3 @@ const useTypingEffect = (
 
   return items.slice(0, currentPosition).join(isTypeByLetter ? "" : " ")
 }
-
-export default useTypingEffect
