@@ -1,11 +1,12 @@
 import { create } from "zustand"
+import { createJSONStorage, persist } from "zustand/middleware"
 
 export interface Message {
   role: "user" | "assistant" | "system"
   content: string
 }
 
-interface Chat {
+export interface Chat {
   id: string
   title: string
   isLoading: boolean
@@ -28,33 +29,59 @@ interface ChatStore {
   setPrompt: (prompt: string) => void
 }
 
-export const useChatStore = create<ChatStore>(set => ({
-  chats: [],
-  activeChatId: null,
+const noopStorage = {
+  getItem: () => null,
+  setItem: () => {},
+  removeItem: () => {},
+}
 
-  prompt: "",
-  setPrompt: prompt => set({ prompt }),
+const getStorage = () =>
+  typeof window !== "undefined" ? localStorage : noopStorage
 
-  setActiveChatId: id => set({ activeChatId: id }),
-  setMessageLoading: (chatId, isLoading) =>
-    set(state => ({
-      chats: state.chats.map(chat =>
-        chat.id === chatId ? { ...chat, isLoading } : chat
-      ),
-    })),
+export const useChatStore = create<ChatStore>()(
+  persist(
+    set => ({
+      chats: [],
+      activeChatId: null,
 
-  addMessage: (chatId, message) =>
-    set(state => ({
-      chats: state.chats.map(chat =>
-        chat.id === chatId
-          ? { ...chat, isLoading: false, messages: [...chat.messages, message] }
-          : chat
-      ),
-    })),
+      prompt: "",
+      setPrompt: prompt => set({ prompt }),
 
-  createNewChat: (id, title, isLoading, messages) =>
-    set(state => ({
-      chats: [...state.chats, { id, title, messages, isLoading }],
-      activeChatId: id,
-    })),
-}))
+      setActiveChatId: id => set({ activeChatId: id }),
+      setMessageLoading: (chatId, isLoading) =>
+        set(state => ({
+          chats: state.chats.map(chat =>
+            chat.id === chatId ? { ...chat, isLoading } : chat
+          ),
+        })),
+
+      addMessage: (chatId, message) =>
+        set(state => ({
+          chats: state.chats.map(chat =>
+            chat.id === chatId
+              ? {
+                  ...chat,
+                  isLoading: false,
+                  messages: [...chat.messages, message],
+                }
+              : chat
+          ),
+        })),
+
+      createNewChat: (id, title, isLoading, messages) =>
+        set(state => ({
+          chats: [...state.chats, { id, title, messages, isLoading }],
+          activeChatId: id,
+        })),
+    }),
+    {
+      name: "chat-ai-chats",
+      storage: createJSONStorage(() => getStorage()),
+      partialize: state => ({
+        chats: state.chats,
+        activeChatId: state.activeChatId,
+      }),
+      skipHydration: true,
+    }
+  )
+)

@@ -2,14 +2,19 @@
 
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
-import { FC, PropsWithChildren } from "react"
+import { FC, PropsWithChildren, useEffect } from "react"
 
+import { useChatStore } from "@/stores/chatStore"
 import Sidebar from "../Sidebar"
 import MenuButton from "./MenuButton"
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   const pathname = usePathname()
   const isHomePage = pathname === "/"
+
+  useEffect(() => {
+    useChatStore.persist.rehydrate()
+  }, [])
 
   return (
     <div className="flex h-screen divide-x divide-neutral-200">
