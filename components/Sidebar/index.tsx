@@ -26,7 +26,7 @@ export default function Sidebar() {
         <Tooltip place="right" content="Profile" id="profile">
           <Link href="/profile">
             <Image
-              src="/profile.png"
+              src="/profile.jpg"
               alt="Profile"
               width={28}
               height={28}

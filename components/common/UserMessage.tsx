@@ -9,7 +9,7 @@ export default function UserMessage({ children }: { children: string }) {
       />
 
       <Image
-        src="/profile.png"
+        src="/profile.jpg"
         alt="Profile"
         width={34}
         height={34}
