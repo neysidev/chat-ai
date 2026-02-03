@@ -1,3 +1,5 @@
+"use client"
+
 export { default as Attachment } from "../Chat/Attachment"
 export { default as Chat } from "../Chat"
 export { default as ChatNote } from "../Chat/ChatNote"
@@ -6,6 +8,7 @@ export { default as Kbd } from "./Kbd"
 export { default as Layout } from "./Layout"
 export { default as MenuButton } from "./MenuButton"
 export { default as Messages } from "./Messages"
+export { default as PageWrapper } from "./PageWrapper"
 export { default as SystemMessage } from "./SystemMessage"
 export { default as Tooltip } from "./Tooltip"
 export { default as UserMessage } from "./UserMessage"

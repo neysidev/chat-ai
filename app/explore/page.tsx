@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
+import { PageWrapper } from "@/components/common"
 import Categories from "./_components/Categories"
 import Header from "./_components/Header"
 import Search from "./_components/Search"
-import PageWrapper from "../page-wrapper"
 
 export const metadata: Metadata = {
   title: "Explore",

@@ -3,7 +3,7 @@
 import Link from "next/link"
 
 import { useChatStore } from "@/stores/chatStore"
-import PageWrapper from "../page-wrapper"
+import { PageWrapper } from "@/components/common"
 
 export default function HistoryPage() {
   const { chats } = useChatStore()
