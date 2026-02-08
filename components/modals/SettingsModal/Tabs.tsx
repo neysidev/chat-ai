@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import { Box, Button } from "@chakra-ui/react"
 import Icon from "@/components/common/Icon"
 import { IconName } from "@/components/common/icons"
 import { SettingsTab, useSettingsStore } from "@/stores/settingsStore"
@@ -21,23 +21,32 @@ export default function Tabs() {
   const { activeTab, setActiveTab } = useSettingsStore()
 
   return (
-    <ul className="space-y-2 mb-8">
+    <Box as="ul" gap={2} mb={8}>
       {items.map(({ name, value, icon }) => (
-        <li key={value}>
-          <button
+        <Box as="li" key={value}>
+          <Button
+            variant="ghost"
             onClick={() => setActiveTab(value)}
-            className={clsx(
-              "flex sm:space-x-2 w-full text-left transition font-medium items-center text-sm rounded-md p-2 sm:pr-4",
-              activeTab === value
-                ? "bg-neutral-100 dark:bg-neutral-700"
-                : "opacity-75 hover:opacity-100",
-            )}
+            display="flex"
+            w="full"
+            textAlign="left"
+            fontWeight="medium"
+            fontSize="sm"
+            alignItems="center"
+            gap={{ base: 0, sm: 2 }}
+            p={2}
+            borderRadius="md"
+            bg={activeTab === value ? "bg.muted" : "transparent"}
+            opacity={activeTab === value ? 1 : 0.75}
+            _hover={{ opacity: 1 }}
           >
             <Icon name={icon} size={18} />
-            <span className="hidden sm:block flex-1">{name}</span>
-          </button>
-        </li>
+            <Box as="span" display={{ base: "none", sm: "block" }} flex={1}>
+              {name}
+            </Box>
+          </Button>
+        </Box>
       ))}
-    </ul>
+    </Box>
   )
 }

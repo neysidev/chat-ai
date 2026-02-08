@@ -1,19 +1,29 @@
 import Image from "next/image"
+import { Box, Flex } from "@chakra-ui/react"
 
 export default function LoadingMessage() {
   return (
-    <div className="flex space-x-2 items-center max-w-[90%] sm:max-w-[80%]">
+    <Flex gap={2} alignItems="center" maxW={{ base: "90%", sm: "80%" }}>
       <Image
         src="/logo.png"
         alt="Logo"
         width={34}
         height={34}
-        className="rounded-full"
+        style={{ borderRadius: "9999px" }}
       />
 
-      <span className="bg-gradient-to-r from-neutral-300 via-black to-neutral-300 bg-clip-text text-transparent animate-shine">
+      <Box
+        as="span"
+        bgGradient="to-r"
+        gradientFrom="gray.300"
+        gradientVia="gray.900"
+        gradientTo="gray.300"
+        bgClip="text"
+        color="transparent"
+        animation="shine 5s infinite linear"
+      >
         Loading...
-      </span>
-    </div>
+      </Box>
+    </Flex>
   )
 }

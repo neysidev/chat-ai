@@ -1,13 +1,21 @@
+import { Box, Heading, Text } from "@chakra-ui/react"
+
 export default function Header() {
   return (
-    <header className="transition-all space-y-2 text-center sm:w-4/5 md:w-2/3 mx-auto">
-      <h1 className="transition-all text-3xl md:text-4xl font-semibold">
+    <Box
+      as="header"
+      gap={2}
+      textAlign="center"
+      w={{ base: "full", sm: "4/5", md: "2/3" }}
+      mx="auto"
+    >
+      <Heading as="h1" size={{ base: "lg", md: "xl" }} fontWeight="semibold">
         Explore
-      </h1>
-      <p className="transition-all text-sm md:text-base text-neutral-600 dark:text-neutral-400">
+      </Heading>
+      <Text fontSize={{ base: "sm", md: "md" }} color="fg.muted">
         Discover and create custom versions of ChatGPT that combine
         instructions, extra knowledge, and any combination of skills.
-      </p>
-    </header>
+      </Text>
+    </Box>
   )
 }

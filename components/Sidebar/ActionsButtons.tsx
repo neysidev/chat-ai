@@ -1,3 +1,4 @@
+import { Box, Flex } from "@chakra-ui/react"
 import { useRouter } from "next/navigation"
 import { useHotkeys } from "react-hotkeys-hook"
 
@@ -13,7 +14,14 @@ export default function ActionsButtons() {
   useHotkeys("shift+h", () => router.push("/history"))
 
   return (
-    <div className="flex flex-col space-y-1 border-b border-dashed pb-4 border-neutral-200 dark:border-neutral-800 transition-colors duration-200">
+    <Flex
+      flexDirection="column"
+      gap={1}
+      borderBottomWidth="1px"
+      borderBottomStyle="dashed"
+      pb={4}
+      borderColor="border"
+    >
       <PageLink
         href="/"
         shortcut="N"
@@ -38,6 +46,6 @@ export default function ActionsButtons() {
           <Icon name="history" size={23} stroke="none" fill="currentColor" />
         }
       />
-    </div>
+    </Flex>
   )
 }

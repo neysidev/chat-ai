@@ -1,3 +1,4 @@
+import { Text } from "@chakra-ui/react"
 import { maxLength } from "@/fixtures/chats"
 import { useChatStore } from "@/stores/chatStore"
 
@@ -5,8 +6,8 @@ export default function CharLengthMessage() {
   const { prompt } = useChatStore()
 
   return (
-    <span className="ml-auto text-neutral-500 font-medium">
+    <Text as="span" ml="auto" color="fg.muted" fontWeight="medium">
       {prompt.length}/{maxLength}
-    </span>
+    </Text>
   )
 }

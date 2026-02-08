@@ -1,44 +1,70 @@
 import Image from "next/image"
+import { Box, SimpleGrid } from "@chakra-ui/react"
 import { GPTS, SECTIONS } from "@/fixtures/explore"
 
 export default function Categories() {
   return (
-    <section className="pt-8 space-y-8">
+    <Box as="section" pt={8} gap={8}>
       {SECTIONS.map(section => (
-        <section key={section.value} className="space-y-2">
-          <header>
-            <h2 className="text-xl font-medium">{section.title}</h2>
-            <p className="text-neutral-600 dark:text-neutral-400">
+        <Box key={section.value} as="section" gap={2}>
+          <Box as="header">
+            <Box as="h2" fontSize="xl" fontWeight="medium">
+              {section.title}
+            </Box>
+            <Box as="p" color="fg.muted">
               {section.description}
-            </p>
-          </header>
-          <ul className="grid sm:grid-cols-2 gap-2">
+            </Box>
+          </Box>
+          <SimpleGrid as="ul" columns={{ base: 1, sm: 2 }} gap={2}>
             {GPTS[section.value].map((gpt, index) => (
-              <li
+              <Box
                 key={index}
-                className="rounded-xl min-h-32 p-4 flex items-center select-none cursor-pointer space-x-2 border dark:border-neutral-800 transition hover:border-transparent hover:bg-white dark:hover:bg-neutral-800 hover:shadow-sm"
+                as="li"
+                borderRadius="xl"
+                minH={32}
+                p={4}
+                display="flex"
+                alignItems="center"
+                userSelect="none"
+                cursor="pointer"
+                gap={2}
+                borderWidth="1px"
+                borderColor="border"
+                _hover={{
+                  borderColor: "transparent",
+                  bg: "bg.panel",
+                  boxShadow: "sm",
+                }}
               >
-                <div className="transition-all w-1/4 md:w-1/3 grid place-items-center">
+                <Box
+                  w={{ base: "1/4", md: "1/3" }}
+                  display="grid"
+                  placeItems="center"
+                >
                   <Image
                     width={64}
                     height={64}
                     src={`/gpts/${gpt.image}`}
                     alt={gpt.title}
-                    className="rounded-full border border-neutral-200"
+                    style={{ borderRadius: "9999px", border: "1px solid var(--chakra-colors-border)" }}
                   />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium mb-1">{gpt.title}</h3>
-                  <p className="text-xs line-clamp-2 mb-2">{gpt.description}</p>
-                  <span className="text-xs block text-neutral-600">
+                </Box>
+                <Box flex={1}>
+                  <Box as="h3" fontWeight="medium" mb={1}>
+                    {gpt.title}
+                  </Box>
+                  <Box as="p" fontSize="xs" lineClamp={2} mb={2}>
+                    {gpt.description}
+                  </Box>
+                  <Box as="span" fontSize="xs" color="fg.muted">
                     By {gpt.creator}
-                  </span>
-                </div>
-              </li>
+                  </Box>
+                </Box>
+              </Box>
             ))}
-          </ul>
-        </section>
+          </SimpleGrid>
+        </Box>
       ))}
-    </section>
+    </Box>
   )
 }

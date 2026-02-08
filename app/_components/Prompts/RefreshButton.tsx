@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import { Button } from "@chakra-ui/react"
 import { usePromptsStore } from "@/stores/promptsStore"
 import { PROMPTS, PROMPTS_COUNT } from "@/fixtures/prompts"
 
@@ -22,14 +22,17 @@ export default function RefreshButton() {
   }
 
   return (
-    <button
+    <Button
+      variant="ghost"
+      size="xs"
+      mt={2.5}
+      color="fg.muted"
+      gap={1.5}
       onClick={onRefresh}
-      className={clsx(
-        "mt-2.5 text-xs transition-colors text-neutral-400 items-center space-x-1.5 flex",
-        isRefreshing
-          ? "opacity-50 cursor-not-allowed"
-          : "hover:text-neutral-500"
-      )}
+      disabled={isRefreshing}
+      opacity={isRefreshing ? 0.5 : 1}
+      cursor={isRefreshing ? "not-allowed" : "pointer"}
+      _hover={isRefreshing ? undefined : { color: "fg" }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +40,11 @@ export default function RefreshButton() {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className={clsx("size-4", isRefreshing && "animate-rotate360")}
+        width={16}
+        height={16}
+        style={{
+          animation: isRefreshing ? "spin 0.75s linear infinite" : "none",
+        }}
       >
         <path
           strokeLinecap="round"
@@ -46,6 +53,6 @@ export default function RefreshButton() {
         />
       </svg>
       <span>Refresh Prompts</span>
-    </button>
+    </Button>
   )
 }

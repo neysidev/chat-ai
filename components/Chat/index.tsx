@@ -1,6 +1,6 @@
 "use client"
 
-import clsx from "clsx"
+import { Box, Flex } from "@chakra-ui/react"
 import { usePathname } from "next/navigation"
 
 import AddAttachment from "./AddAttachment"
@@ -13,21 +13,27 @@ export default function Chat() {
   const isHomePage = pathname === "/"
 
   return (
-    <section
-      className={clsx(
-        "w-full space-y-2 bg-white dark:bg-neutral-900 shadow-sm rounded-xl border p-4 border-neutral-150 dark:border-neutral-800",
-        isHomePage && "sm:mt-16"
-      )}
+    <Box
+      as="section"
+      w="full"
+      gap={2}
+      bg="bg.panel"
+      boxShadow="sm"
+      borderRadius="xl"
+      borderWidth="1px"
+      borderColor="border"
+      p={4}
+      mt={isHomePage ? { base: 0, sm: 16 } : 0}
     >
       <PromptInput />
 
-      <footer className="flex text-sm items-end justify-between">
+      <Flex as="footer" fontSize="sm" alignItems="flex-end" justifyContent="space-between">
         <AddAttachment />
-        <div className="space-x-2 flex items-center">
+        <Flex gap={2} alignItems="center">
           <CharLengthMessage />
           <SendMessageButton />
-        </div>
-      </footer>
-    </section>
+        </Flex>
+      </Flex>
+    </Box>
   )
 }

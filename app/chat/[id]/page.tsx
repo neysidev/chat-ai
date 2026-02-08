@@ -1,5 +1,6 @@
 "use client"
 
+import { Box } from "@chakra-ui/react"
 import { useParams } from "next/navigation"
 
 import { PageWrapper } from "@/components/common"
@@ -24,26 +25,30 @@ export default function ChatPage() {
 
   return (
     <PageWrapper>
-      <div
-        style={{ height: "calc(100vh - 32px)" }}
-        className="flex flex-col justify-between"
+      <Box
+        h="calc(100vh - 32px)"
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
       >
-        <div
+        <Box
           ref={messagesRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto no-scrollbar"
+          flex={1}
+          overflowY="auto"
+          className="no-scrollbar"
         >
           <Messages messages={messages} isLoading={isLoading} />
-        </div>
-        <div className="relative">
+        </Box>
+        <Box position="relative">
           <ScrollToBottom
             isVisible={isScrollVisible}
             onClick={scrollToBottom}
           />
           <Chat />
           <ChatNote />
-        </div>
-      </div>
+        </Box>
+      </Box>
     </PageWrapper>
   )
 }

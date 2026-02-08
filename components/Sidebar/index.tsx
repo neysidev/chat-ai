@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Box, Flex, Separator } from "@chakra-ui/react"
 
 import Tooltip from "../common/Tooltip"
 import ActionsButtons from "./ActionsButtons"
@@ -8,23 +9,30 @@ import SettingsButton from "./SettingsButton"
 
 export default function Sidebar() {
   return (
-    <aside className="p-4 hidden sm:flex flex-col justify-between items-center">
-      <div className="flex flex-col items-center space-y-5">
+    <Box
+      as="aside"
+      p={4}
+      display={{ base: "none", sm: "flex" }}
+      flexDirection="column"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Flex flexDirection="column" alignItems="center" gap={5}>
         <Link href="/">
           <Image
             src="/logo.png"
             alt="Logo"
             width={40}
             height={40}
-            className="rounded-xl"
+            style={{ borderRadius: "0.75rem" }}
           />
         </Link>
         <NewChat />
         <ActionsButtons />
-      </div>
-      <div className="flex flex-col items-center">
+      </Flex>
+      <Flex flexDirection="column" alignItems="center">
         <SettingsButton />
-        <hr className="w-full mt-2 pb-4 border-dashed border-neutral-200 dark:border-neutral-800 transition-colors duration-200" />
+        <Separator mt={2} mb={4} borderStyle="dashed" borderColor="border" />
         <Tooltip place="right" content="Profile" id="profile">
           <Link href="/profile">
             <Image
@@ -32,11 +40,11 @@ export default function Sidebar() {
               alt="Profile"
               width={28}
               height={28}
-              className="rounded-full"
+              style={{ borderRadius: "9999px" }}
             />
           </Link>
         </Tooltip>
-      </div>
-    </aside>
+      </Flex>
+    </Box>
   )
 }

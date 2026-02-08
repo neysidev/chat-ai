@@ -1,5 +1,6 @@
 "use client"
 
+import { Box } from "@chakra-ui/react"
 import { FileType, useMessageStore } from "@/stores/messageStore"
 import Attachment from "@/components/Chat/Attachment"
 import Icon from "@/components/common/Icon"
@@ -27,12 +28,22 @@ export default function AddAttachment() {
         <Attachment file={file} onDelete={deleteFile} />
       ) : (
         <>
-          <label
-            htmlFor="add-attachment"
-            className="flex items-center space-x-1 font-medium text-neutral-600 dark:text-neutral-400 transition-colors select-none hover:text-neutral-800 dark:hover:text-neutral-200 cursor-pointer"
-          >
-            <Icon name="plus" size={20} />
-            <span className="hidden sm:block">Add Attachment</span>
+          <label htmlFor="add-attachment">
+            <Box
+              display="flex"
+              alignItems="center"
+              gap={1}
+              fontWeight="medium"
+              color="fg.muted"
+              cursor="pointer"
+              userSelect="none"
+              _hover={{ color: "fg" }}
+            >
+              <Icon name="plus" size={20} />
+              <Box as="span" display={{ base: "none", sm: "block" }}>
+                Add Attachment
+              </Box>
+            </Box>
           </label>
 
           <input
