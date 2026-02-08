@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply transition-colors duration-200 ease-out;
+  }
+  body {
+    @apply transition-colors duration-200 ease-out bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
+  }
   *::selection {
-    @apply bg-black text-white;
+    @apply bg-black text-white dark:bg-white dark:text-black;
   }
 }
 
@@ -18,10 +24,10 @@
   }
 
   .system-message {
-    @apply space-y-2 leading-relaxed;
+    @apply space-y-2 leading-relaxed text-neutral-900 dark:text-neutral-100;
   }
   .system-message code {
-    @apply rounded-lg text-xs bg-neutral-50;
+    @apply rounded-lg text-xs bg-neutral-50 dark:bg-neutral-700 dark:text-neutral-200;
   }
   .system-message ul {
     @apply list-disc list-inside;

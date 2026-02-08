@@ -24,7 +24,7 @@ export default function Sidebar() {
       </div>
       <div className="flex flex-col items-center">
         <SettingsButton />
-        <hr className="w-full mt-2 pb-4 border-dashed border-neutral-200" />
+        <hr className="w-full mt-2 pb-4 border-dashed border-neutral-200 dark:border-neutral-800 transition-colors duration-200" />
         <Tooltip place="right" content="Profile" id="profile">
           <Link href="/profile">
             <Image

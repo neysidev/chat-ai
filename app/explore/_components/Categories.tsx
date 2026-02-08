@@ -8,13 +8,15 @@ export default function Categories() {
         <section key={section.value} className="space-y-2">
           <header>
             <h2 className="text-xl font-medium">{section.title}</h2>
-            <p className="text-neutral-600">{section.description}</p>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              {section.description}
+            </p>
           </header>
           <ul className="grid sm:grid-cols-2 gap-2">
             {GPTS[section.value].map((gpt, index) => (
               <li
                 key={index}
-                className="rounded-xl min-h-32 p-4 flex items-center select-none cursor-pointer space-x-2 border transition hover:border-transparent hover:bg-white hover:shadow-sm"
+                className="rounded-xl min-h-32 p-4 flex items-center select-none cursor-pointer space-x-2 border dark:border-neutral-800 transition hover:border-transparent hover:bg-white dark:hover:bg-neutral-800 hover:shadow-sm"
               >
                 <div className="transition-all w-1/4 md:w-1/3 grid place-items-center">
                   <Image

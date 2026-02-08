@@ -15,7 +15,7 @@ export default function Chat() {
   return (
     <section
       className={clsx(
-        "w-full space-y-2 bg-white shadow-sm rounded-xl border p-4 border-neutral-150",
+        "w-full space-y-2 bg-white dark:bg-neutral-900 shadow-sm rounded-xl border p-4 border-neutral-150 dark:border-neutral-800",
         isHomePage && "sm:mt-16"
       )}
     >

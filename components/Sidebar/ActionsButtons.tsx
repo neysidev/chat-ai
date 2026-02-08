@@ -13,7 +13,7 @@ export default function ActionsButtons() {
   useHotkeys("shift+h", () => router.push("/history"))
 
   return (
-    <div className="flex flex-col space-y-1 border-b border-dashed pb-4 border-neutral-200">
+    <div className="flex flex-col space-y-1 border-b border-dashed pb-4 border-neutral-200 dark:border-neutral-800 transition-colors duration-200">
       <PageLink
         href="/"
         shortcut="N"

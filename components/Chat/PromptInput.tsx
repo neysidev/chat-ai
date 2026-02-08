@@ -30,7 +30,7 @@ export default function PromptInput() {
       value={prompt}
       onInput={adjustHeight}
       maxLength={maxLength}
-      className="bg-transparent text-sm w-full resize-none placeholder:text-black focus:outline-none"
+      className="bg-transparent text-sm w-full resize-none text-neutral-900 dark:text-neutral-400 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none transition-colors duration-200"
       placeholder="Ask whatever you want..."
       onChange={e => setPrompt(e.target.value)}
     />

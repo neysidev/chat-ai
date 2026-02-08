@@ -22,7 +22,10 @@ export default function NewChat() {
       }
       place="right"
     >
-      <Link href="/" className="bg-white block rounded-xl shadow-sm border p-1">
+      <Link
+        href="/"
+        className="bg-white dark:bg-neutral-800 block rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 p-1 transition-colors duration-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
+      >
         <svg
           width={24}
           height={24}
@@ -30,7 +33,7 @@ export default function NewChat() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           stroke="currentColor"
-          className="text-neutral-600"
+          className="text-neutral-600 dark:text-neutral-400"
         >
           <path
             d="M6 12H18"

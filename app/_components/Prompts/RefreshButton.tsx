@@ -25,10 +25,10 @@ export default function RefreshButton() {
     <button
       onClick={onRefresh}
       className={clsx(
-        "mt-2.5 text-xs transition-colors text-neutral-500 items-center space-x-1.5 flex",
+        "mt-2.5 text-xs transition-colors text-neutral-400 items-center space-x-1.5 flex",
         isRefreshing
           ? "opacity-50 cursor-not-allowed"
-          : "hover:text-neutral-700"
+          : "hover:text-neutral-500"
       )}
     >
       <svg

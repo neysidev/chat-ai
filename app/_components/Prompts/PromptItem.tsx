@@ -28,10 +28,10 @@ export default function PromptItem({ text, icon }: PromptItemProps) {
       title={text}
       onClick={onClick}
       className={clsx(
-        "text-xs border rounded-xl p-4 space-y-2 md:space-y-6 flex flex-col font-medium select-none transition",
+        "text-xs border dark:border-neutral-800 dark:text-neutral-400 rounded-xl p-4 space-y-2 md:space-y-6 flex flex-col font-medium select-none transition",
         isRefreshing
           ? "cursor-not-allowed"
-          : "cursor-pointer hover:bg-white hover:shadow-sm"
+          : "cursor-pointer hover:bg-white dark:hover:bg-neutral-800 hover:shadow-sm"
       )}
     >
       <span className="flex-1 line-clamp-2">{text}</span>
@@ -42,7 +42,7 @@ export default function PromptItem({ text, icon }: PromptItemProps) {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-5 text-neutral-500"
+        className="size-5 text-neutral-500 dark:text-neutral-400"
       >
         {icon}
       </svg>

@@ -17,12 +17,12 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
   }, [])
 
   return (
-    <div className="flex h-screen divide-x divide-neutral-200">
+    <div className="flex h-screen divide-x divide-neutral-200 dark:divide-neutral-800 transition-colors duration-200">
       <Sidebar />
 
       <main
         className={clsx(
-          "flex-1 sm:p-4 max-h-screen flex flex-col overflow-y-auto",
+          "flex-1 sm:p-4 max-h-screen flex flex-col overflow-y-auto transition-colors duration-200",
           isHomePage && "sm:grid sm:place-items-center"
         )}
       >

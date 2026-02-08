@@ -29,7 +29,7 @@ export default function AddAttachment() {
         <>
           <label
             htmlFor="add-attachment"
-            className="flex items-center space-x-1 font-medium text-neutral-600 transition-colors select-none hover:text-neutral-800 cursor-pointer"
+            className="flex items-center space-x-1 font-medium text-neutral-600 dark:text-neutral-400 transition-colors select-none hover:text-neutral-800 dark:hover:text-neutral-200 cursor-pointer"
           >
             <Icon name="plus" size={20} />
             <span className="hidden sm:block">Add Attachment</span>

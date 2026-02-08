@@ -55,8 +55,8 @@ const icons: Record<string, FileType> = {
 
 export default function Attachment({ file, onDelete }: AttachmentProps) {
   return (
-    <div className="border rounded-full flex space-x-1 items-center pl-1 pr-2 py-1 text-sm">
-      <div className="w-8 h-8 bg-neutral-100 rounded-full grid place-items-center text-neutral-500">
+    <div className="border dark:border-neutral-800 rounded-full flex space-x-1 items-center pl-1 pr-2 py-1 text-sm">
+      <div className="w-8 h-8 bg-neutral-100 dark:bg-neutral-800 rounded-full grid place-items-center text-neutral-500">
         <Icon name={icons[file.type] || "attachment"} size={16} />
       </div>
 
@@ -68,7 +68,11 @@ export default function Attachment({ file, onDelete }: AttachmentProps) {
       </div>
 
       <button onClick={onDelete}>
-        <Icon name="xCircle" size={20} className="text-red-500" />
+        <Icon
+          name="xCircle"
+          size={20}
+          className="text-red-500 dark:text-red-400"
+        />
       </button>
     </div>
   )

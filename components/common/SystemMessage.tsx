@@ -18,7 +18,7 @@ export default function SystemMessage({ children }: { children: string }) {
         className="rounded-full"
       />
 
-      <div className="system-message overflow-x-auto bg-white border border-neutral-200 p-4 rounded-xl">
+      <div className="system-message overflow-x-auto bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-600 p-4 rounded-xl transition-colors duration-200">
         <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
           {typedText}
         </ReactMarkdown>

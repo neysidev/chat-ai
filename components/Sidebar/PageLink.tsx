@@ -14,7 +14,7 @@ interface PageLinkProps {
 }
 
 const className =
-  "inline-flex items-center text-neutral-600 justify-center p-1.5"
+  "inline-flex items-center text-neutral-600 justify-center p-1.5 dark:text-neutral-400 dark:hover:text-neutral-200"
 
 export default function PageLink({
   href,

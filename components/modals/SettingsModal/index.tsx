@@ -26,13 +26,16 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
         <div className="flex min-h-full items-center justify-center">
           <DialogPanel
             transition
-            className="min-w-96 divide-y bg-white rounded-xl duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+            className="min-w-96 divide-y divide-neutral-200 dark:divide-neutral-700 bg-white dark:bg-neutral-800 rounded-xl ease-out data-[closed]:scale-95 data-[closed]:opacity-0 transition-colors duration-200"
           >
             <header className="px-5 py-4 flex items-center justify-between">
-              <DialogTitle as="h3" className="font-bold">
+              <DialogTitle
+                as="h3"
+                className="font-bold text-neutral-900 dark:text-neutral-100"
+              >
                 Settings
               </DialogTitle>
-              <CloseButton className="p-2 rounded-full transition hover:bg-neutral-200">
+              <CloseButton className="p-2 rounded-full transition-colors duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-700">
                 <Icon name="xMark" size={18} />
               </CloseButton>
             </header>

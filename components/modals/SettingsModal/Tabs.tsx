@@ -29,8 +29,8 @@ export default function Tabs() {
             className={clsx(
               "flex sm:space-x-2 w-full text-left transition font-medium items-center text-sm rounded-md p-2 sm:pr-4",
               activeTab === value
-                ? "bg-neutral-100"
-                : "opacity-75 hover:opacity-100"
+                ? "bg-neutral-100 dark:bg-neutral-700"
+                : "opacity-75 hover:opacity-100",
             )}
           >
             <Icon name={icon} size={18} />
