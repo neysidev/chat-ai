@@ -1,3 +1,4 @@
+import { Button } from "@chakra-ui/react"
 import { usePathname, useRouter } from "next/navigation"
 
 import { useChatStore } from "@/stores/chatStore"
@@ -32,12 +33,21 @@ export default function SendMessageButton() {
 
   return (
     <Tooltip id="send" content="Send" place="top">
-      <button
+      <Button
         onClick={onSubmit}
-        className="rounded-xl p-1.5 text-white bg-gradient-to-t from-purple-900 to-purple-600 dark:from-purple-700 dark:to-purple-400"
+        borderRadius="xl"
+        p={1.5}
+        color="white"
+        bgGradient="to-t"
+        gradientFrom="purple.900"
+        gradientTo="purple.600"
+        _dark={{
+          gradientFrom: "purple.700",
+          gradientTo: "purple.400",
+        }}
       >
         <Icon name="arrowUp" size={16} strokeWidth={2} />
-      </button>
+      </Button>
     </Tooltip>
   )
 }

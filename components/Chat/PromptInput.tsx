@@ -1,3 +1,4 @@
+import { Textarea } from "@chakra-ui/react"
 import { useRef } from "react"
 import { usePathname } from "next/navigation"
 
@@ -24,15 +25,24 @@ export default function PromptInput() {
   }
 
   return (
-    <textarea
+    <Textarea
       ref={textareaRef}
       rows={isHomePage ? maxLines : 1}
       value={prompt}
       onInput={adjustHeight}
       maxLength={maxLength}
-      className="bg-transparent text-sm w-full resize-none text-neutral-900 dark:text-neutral-400 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none transition-colors duration-200"
+      bg="transparent"
+      fontSize="sm"
+      w="full"
+      resize="none"
+      color="fg"
       placeholder="Ask whatever you want..."
+      _placeholder={{ color: "fg.muted" }}
       onChange={e => setPrompt(e.target.value)}
+      border="none"
+      outline="none"
+      p={0}
+      minH="unset"
     />
   )
 }

@@ -1,20 +1,28 @@
 import Image from "next/image"
+import { Box, Flex } from "@chakra-ui/react"
 
 export default function UserMessage({ children }: { children: string }) {
   return (
-    <div className="flex space-x-2 items-start max-w-[80%] ml-auto">
-      <div
-        className="bg-neutral-200 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 p-3 rounded-xl transition-colors duration-200"
+    <Flex gap={2} alignItems="flex-start" maxW="80%" ml="auto">
+      <Box
+        bg="gray.200"
+        borderWidth="1px"
+        borderColor="gray.300"
+        p={3}
+        borderRadius="xl"
+        _dark={{ bg: "gray.700", borderColor: "gray.600" }}
         dangerouslySetInnerHTML={{ __html: children }}
       />
 
-      <Image
-        src="/profile.jpg"
-        alt="Profile"
-        width={34}
-        height={34}
-        className="hidden sm:block rounded-full"
-      />
-    </div>
+      <Box display={{ base: "none", sm: "block" }}>
+        <Image
+          src="/profile.jpg"
+          alt="Profile"
+          width={34}
+          height={34}
+          style={{ borderRadius: "9999px" }}
+        />
+      </Box>
+    </Flex>
   )
 }

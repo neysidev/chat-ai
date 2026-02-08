@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react"
 import { Message } from "@/stores/chatStore"
 import UserMessage from "./UserMessage"
 import SystemMessage from "./SystemMessage"
@@ -10,7 +11,17 @@ interface MessagesProps {
 
 export default function Messages({ messages, isLoading }: MessagesProps) {
   return (
-    <section className="flex flex-col flex-1 pb-4 text-sm h-full space-y-4 justify-end">
+    <Box
+      as="section"
+      display="flex"
+      flexDirection="column"
+      flex={1}
+      pb={4}
+      fontSize="sm"
+      h="full"
+      gap={4}
+      justifyContent="flex-end"
+    >
       {messages.map(({ role, content }, index) =>
         role === "user" ? (
           <UserMessage key={index}>{content}</UserMessage>
@@ -20,6 +31,6 @@ export default function Messages({ messages, isLoading }: MessagesProps) {
       )}
 
       {isLoading && <LoadingMessage />}
-    </section>
+    </Box>
   )
 }

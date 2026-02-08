@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import { Box, Flex } from "@chakra-ui/react"
 import { useRouter } from "next/navigation"
 
 import { useChatStore } from "@/stores/chatStore"
@@ -24,17 +24,35 @@ export default function PromptItem({ text, icon }: PromptItemProps) {
   }
 
   return (
-    <li
+    <Box
+      as="li"
       title={text}
       onClick={onClick}
-      className={clsx(
-        "text-xs border dark:border-neutral-800 dark:text-neutral-400 rounded-xl p-4 space-y-2 md:space-y-6 flex flex-col font-medium select-none transition",
+      fontSize="xs"
+      borderWidth="1px"
+      borderColor="border"
+      color="fg.muted"
+      borderRadius="xl"
+      p={4}
+      display="flex"
+      flexDirection="column"
+      gap={{ base: 2, md: 6 }}
+      fontWeight="medium"
+      userSelect="none"
+      cursor={isRefreshing ? "not-allowed" : "pointer"}
+      transition="all"
+      _hover={
         isRefreshing
-          ? "cursor-not-allowed"
-          : "cursor-pointer hover:bg-white dark:hover:bg-neutral-800 hover:shadow-sm"
-      )}
+          ? undefined
+          : {
+              bg: "bg.panel",
+              boxShadow: "sm",
+            }
+      }
     >
-      <span className="flex-1 line-clamp-2">{text}</span>
+      <Box as="span" flex={1} lineClamp={2}>
+        {text}
+      </Box>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -42,10 +60,12 @@ export default function PromptItem({ text, icon }: PromptItemProps) {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-5 text-neutral-500 dark:text-neutral-400"
+        width={20}
+        height={20}
+        style={{ flexShrink: 0, color: "var(--chakra-colors-fg-muted)" }}
       >
         {icon}
       </svg>
-    </li>
+    </Box>
   )
 }

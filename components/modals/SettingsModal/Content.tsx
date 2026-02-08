@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react"
 import { useSettingsStore } from "@/stores/settingsStore"
 import GeneralContent from "./GeneralContent"
 import PersonalizedContent from "./PersonalizedContent"
@@ -18,8 +19,8 @@ export default function Content() {
   const Component = contents[activeTab]
 
   return (
-    <div className="w-[440px]">
+    <Box w="440px">
       <Component />
-    </div>
+    </Box>
   )
 }

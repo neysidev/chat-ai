@@ -1,10 +1,14 @@
 import Icon from "@/components/common/Icon"
 import {
-  CloseButton,
-  Dialog,
-  DialogPanel,
+  DialogBackdrop,
+  DialogCloseTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogPositioner,
+  DialogRoot,
   DialogTitle,
-} from "@headlessui/react"
+} from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import Tabs from "./Tabs"
 import Content from "./Content"
 
@@ -15,38 +19,38 @@ interface SettingsModalProps {
 
 export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   return (
-    <Dialog
-      open={isOpen}
-      as="div"
-      transition
-      className="fixed inset-0 flex w-screen z-10 items-center justify-center bg-black/50 p-4 transition duration-300 ease-out data-[closed]:opacity-0"
-      onClose={onClose}
-    >
-      <div className="fixed inset-0 w-screen overflow-y-auto p-4">
-        <div className="flex min-h-full items-center justify-center">
-          <DialogPanel
-            transition
-            className="min-w-96 divide-y divide-neutral-200 dark:divide-neutral-700 bg-white dark:bg-neutral-800 rounded-xl ease-out data-[closed]:scale-95 data-[closed]:opacity-0 transition-colors duration-200"
-          >
-            <header className="px-5 py-4 flex items-center justify-between">
-              <DialogTitle
-                as="h3"
-                className="font-bold text-neutral-900 dark:text-neutral-100"
+    <DialogRoot open={isOpen} onOpenChange={e => !e.open && onClose()}>
+      <DialogBackdrop />
+      <DialogPositioner>
+        <DialogContent
+          minW={96}
+          borderRadius="xl"
+          bg="bg.panel"
+          divideY="1px"
+          divideColor="border"
+        >
+          <DialogHeader px={5} py={4} display="flex" alignItems="center" justifyContent="space-between">
+            <DialogTitle fontWeight="bold" color="fg">
+              Settings
+            </DialogTitle>
+            <DialogCloseTrigger asChild>
+              <Box
+                as="button"
+                p={2}
+                borderRadius="full"
+                _hover={{ bg: "bg.muted" }}
               >
-                Settings
-              </DialogTitle>
-              <CloseButton className="p-2 rounded-full transition-colors duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-700">
                 <Icon name="xMark" size={18} />
-              </CloseButton>
-            </header>
+              </Box>
+            </DialogCloseTrigger>
+          </DialogHeader>
 
-            <div className="px-5 py-4 flex text-sm space-x-6">
-              <Tabs />
-              <Content />
-            </div>
-          </DialogPanel>
-        </div>
-      </div>
-    </Dialog>
+          <Box px={5} py={4} display="flex" fontSize="sm" gap={6}>
+            <Tabs />
+            <Content />
+          </Box>
+        </DialogContent>
+      </DialogPositioner>
+    </DialogRoot>
   )
 }

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Box, Button } from "@chakra-ui/react"
 import Tooltip from "../common/Tooltip"
 import Kbd from "../common/Kbd"
 
@@ -13,8 +14,14 @@ interface PageLinkProps {
   icon: React.ReactElement
 }
 
-const className =
-  "inline-flex items-center text-neutral-600 justify-center p-1.5 dark:text-neutral-400 dark:hover:text-neutral-200"
+const linkStyles = {
+  display: "inline-flex" as const,
+  alignItems: "center" as const,
+  justifyContent: "center" as const,
+  color: "fg.muted",
+  p: 1.5,
+  _hover: { color: "fg" },
+}
 
 export default function PageLink({
   href,
@@ -29,24 +36,26 @@ export default function PageLink({
     <Tooltip
       id={`${value}-tooltip`}
       content={
-        <div className="flex space-x-1 items-center">
-          <span className="font-medium">{label}</span>{" "}
-          <span className="text-xs">
+        <Box display="flex" gap={1} alignItems="center">
+          <Box as="span" fontWeight="medium">
+            {label}
+          </Box>{" "}
+          <Box as="span" fontSize="xs">
             <Kbd>shift</Kbd>+<Kbd>{shortcut}</Kbd>
-          </span>
-        </div>
+          </Box>
+        </Box>
       }
       place="right"
     >
       {href ? (
-        <Link href={href} className={className}>
-          {icon}
+        <Link href={href}>
+          <Box {...linkStyles}>{icon}</Box>
         </Link>
       ) : (
         <>
-          <button onClick={onOpen} className={className}>
+          <Button variant="ghost" onClick={onOpen} {...linkStyles}>
             {icon}
-          </button>
+          </Button>
           {modalContent}
         </>
       )}

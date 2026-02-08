@@ -1,7 +1,7 @@
 "use client"
 
+import { Box } from "@chakra-ui/react"
 import { usePathname } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
 
 export default function PageWrapper({
   children,
@@ -11,16 +11,8 @@ export default function PageWrapper({
   const pathname = usePathname()
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, filter: "blur(10px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
-        exit={{ opacity: 0, filter: "blur(10px)" }}
-        transition={{ duration: 0.4 }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <Box key={pathname} animation="fade-in 0.4s ease-out">
+      {children}
+    </Box>
   )
 }

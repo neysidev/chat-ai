@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import { Box, Button } from "@chakra-ui/react"
 
 interface ScrollToBottomProps {
   isVisible: boolean
@@ -10,26 +10,38 @@ export default function ScrollToBottom({
   onClick,
 }: ScrollToBottomProps) {
   return (
-    <div
-      className={clsx(
-        "absolute left-0 right-0 bottom-full transition-all ease-in duration-150 flex justify-center pb-5 pt-1 bg-gradient-to-t from-neutral-100",
-        isVisible ? "opacity-100" : "opacity-0"
-      )}
+    <Box
+      position="absolute"
+      left={0}
+      right={0}
+      bottom="100%"
+      transition="all 0.15s ease-in"
+      display="flex"
+      justifyContent="center"
+      pb={5}
+      pt={1}
+      bgGradient="to-t"
+      gradientFrom="bg"
+      opacity={isVisible ? 1 : 0}
     >
-      <button
+      <Button
         onClick={onClick}
-        className={clsx(
-          "bg-black text-white p-1.5 transition-all ease-in-out duration-150 rounded-full",
-          isVisible
-            ? "opacity-100 scale-100"
-            : "opacity-0 scale-0 pointer-events-none"
-        )}
+        bg="gray.900"
+        color="white"
+        p={1.5}
+        borderRadius="full"
+        transition="all 0.15s"
+        opacity={isVisible ? 1 : 0}
+        transform={isVisible ? "scale(1)" : "scale(0)"}
+        pointerEvents={isVisible ? "auto" : "none"}
+        aria-label="Scroll to bottom"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="size-4"
+          width={16}
+          height={16}
         >
           <path
             fillRule="evenodd"
@@ -37,7 +49,7 @@ export default function ScrollToBottom({
             clipRule="evenodd"
           />
         </svg>
-      </button>
-    </div>
+      </Button>
+    </Box>
   )
 }

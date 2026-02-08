@@ -1,3 +1,4 @@
+import { Box, Button, Flex } from "@chakra-ui/react"
 import { File, FileType } from "@/stores/messageStore"
 import { formatBytes } from "@/utils/format"
 import Icon from "../common/Icon"
@@ -8,14 +9,11 @@ interface AttachmentProps {
 }
 
 const icons: Record<string, FileType> = {
-  // Image types
   "image/png": "image",
   "image/jpeg": "image",
   "image/jpg": "image",
   "image/gif": "image",
   "image/svg+xml": "image",
-
-  // Document types
   "application/pdf": "document",
   "application/msword": "documentText",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
@@ -26,27 +24,19 @@ const icons: Record<string, FileType> = {
   "application/vnd.openxmlformats-officedocument.presentationml.presentation":
     "documentText",
   "text/plain": "documentText",
-
-  // Archive types
   "application/zip": "archive",
   "application/x-rar-compressed": "archive",
   "application/x-7z-compressed": "archive",
   "application/x-tar": "archive",
   "application/gzip": "archive",
-
-  // Audio types
   "audio/mpeg": "audio",
   "audio/ogg": "audio",
   "audio/wav": "audio",
   "audio/x-wav": "audio",
-
-  // Video types
   "video/mp4": "video",
   "video/x-msvideo": "video",
   "video/x-matroska": "video",
   "video/quicktime": "video",
-
-  // Other types
   "application/json": "code",
   "application/javascript": "code",
   "application/xml": "code",
@@ -55,25 +45,41 @@ const icons: Record<string, FileType> = {
 
 export default function Attachment({ file, onDelete }: AttachmentProps) {
   return (
-    <div className="border dark:border-neutral-800 rounded-full flex space-x-1 items-center pl-1 pr-2 py-1 text-sm">
-      <div className="w-8 h-8 bg-neutral-100 dark:bg-neutral-800 rounded-full grid place-items-center text-neutral-500">
+    <Flex
+      borderWidth="1px"
+      borderColor="border"
+      borderRadius="full"
+      gap={1}
+      alignItems="center"
+      pl={1}
+      pr={2}
+      py={1}
+      fontSize="sm"
+    >
+      <Flex
+        w={8}
+        h={8}
+        bg="bg.muted"
+        borderRadius="full"
+        alignItems="center"
+        justifyContent="center"
+        color="fg.muted"
+      >
         <Icon name={icons[file.type] || "attachment"} size={16} />
-      </div>
+      </Flex>
 
-      <div className="px-1 text-xs">
-        <p className="max-w-24 truncate" title={file.name}>
+      <Box px={1} fontSize="xs">
+        <Box as="p" maxW={24} truncate title={file.name}>
           {file.name}
-        </p>
-        <p className="text-neutral-500">{formatBytes(file.size)}</p>
-      </div>
+        </Box>
+        <Box as="p" color="fg.muted">
+          {formatBytes(file.size)}
+        </Box>
+      </Box>
 
-      <button onClick={onDelete}>
-        <Icon
-          name="xCircle"
-          size={20}
-          className="text-red-500 dark:text-red-400"
-        />
-      </button>
-    </div>
+      <Button variant="ghost" size="sm" onClick={onDelete} color="red.500" _dark={{ color: "red.400" }} aria-label="Remove attachment">
+        <Icon name="xCircle" size={20} />
+      </Button>
+    </Flex>
   )
 }

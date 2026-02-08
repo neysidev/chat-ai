@@ -1,9 +1,18 @@
+import { Box } from "@chakra-ui/react"
 import { FC, PropsWithChildren } from "react"
 
 const Kbd: FC<PropsWithChildren> = ({ children }) => (
-  <kbd className="bg-neutral-700 rounded-lg border border-neutral-600 py-0.5 px-1.5">
+  <Box
+    as="kbd"
+    bg="gray.700"
+    borderRadius="md"
+    borderWidth="1px"
+    borderColor="gray.600"
+    py={0.5}
+    px={1.5}
+  >
     {children}
-  </kbd>
+  </Box>
 )
 
 export default Kbd

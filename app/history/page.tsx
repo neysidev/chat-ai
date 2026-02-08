@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { Box, Heading, Text } from "@chakra-ui/react"
 
 import { useChatStore } from "@/stores/chatStore"
 import { PageWrapper } from "@/components/common"
@@ -11,48 +12,71 @@ export default function HistoryPage() {
 
   return (
     <PageWrapper>
-      <div className="py-16">
-        <header className="space-y-2 text-center sm:w-4/5 md:w-2/3 mx-auto mb-10">
-          <h1 className="text-3xl md:text-4xl font-semibold">History</h1>
-          <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400">
+      <Box py={16}>
+        <Box
+          as="header"
+          gap={2}
+          textAlign="center"
+          w={{ base: "full", sm: "4/5", md: "2/3" }}
+          mx="auto"
+          mb={10}
+        >
+          <Heading as="h1" size={{ base: "lg", md: "xl" }} fontWeight="semibold">
+            History
+          </Heading>
+          <Text fontSize={{ base: "sm", md: "md" }} color="fg.muted">
             Your recent conversations. Click to continue where you left off.
-          </p>
-        </header>
+          </Text>
+        </Box>
 
         {orderedChats.length === 0 ? (
-          <div className="text-center py-12 text-neutral-500 dark:text-neutral-400">
-            <p className="font-medium">No conversations yet</p>
-            <p className="text-sm mt-1">
+          <Box textAlign="center" py={12} color="fg.muted">
+            <Text fontWeight="medium">No conversations yet</Text>
+            <Text fontSize="sm" mt={1}>
               Start a new chat from home — it will appear here.
-            </p>
-            <Link
-              href="/"
-              className="inline-block mt-4 text-sm font-medium text-neutral-700 dark:text-neutral-400 hover:underline"
-            >
-              Go to Home
+            </Text>
+            <Link href="/">
+              <Text
+                as="span"
+                display="inline-block"
+                mt={4}
+                fontSize="sm"
+                fontWeight="medium"
+                color="fg"
+                _hover={{ textDecoration: "underline" }}
+              >
+                Go to Home
+              </Text>
             </Link>
-          </div>
+          </Box>
         ) : (
-          <ul className="space-y-2">
+          <Box as="ul" gap={2}>
             {orderedChats.map(chat => (
-              <li key={chat.id}>
-                <Link
-                  href={`/chat/${chat.id}`}
-                  className="block rounded-xl p-4 border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 transition hover:border-transparent hover:shadow-sm"
-                >
-                  <span className="font-medium line-clamp-1">
-                    {chat.title || "New chat"}
-                  </span>
-                  <span className="text-xs text-neutral-500 mt-0.5 block">
-                    {chat.messages.length} message
-                    {chat.messages.length !== 1 ? "s" : ""}
-                  </span>
+              <Box as="li" key={chat.id}>
+                <Link href={`/chat/${chat.id}`}>
+                  <Box
+                    display="block"
+                    borderRadius="xl"
+                    p={4}
+                    borderWidth="1px"
+                    borderColor="border"
+                    bg="bg.panel"
+                    _hover={{ borderColor: "transparent", boxShadow: "sm" }}
+                  >
+                    <Text fontWeight="medium" lineClamp={1}>
+                      {chat.title || "New chat"}
+                    </Text>
+                    <Text fontSize="xs" color="fg.muted" mt={0.5} display="block">
+                      {chat.messages.length} message
+                      {chat.messages.length !== 1 ? "s" : ""}
+                    </Text>
+                  </Box>
                 </Link>
-              </li>
+              </Box>
             ))}
-          </ul>
+          </Box>
         )}
-      </div>
+      </Box>
     </PageWrapper>
   )
 }

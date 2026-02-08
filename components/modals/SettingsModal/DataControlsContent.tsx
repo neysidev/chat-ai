@@ -1,24 +1,40 @@
+import { Box, Button } from "@chakra-ui/react"
+
 export default function DataControlsContent() {
   return (
-    <ul className="divide-y dark:divide-neutral-700">
-      <li className="py-3 pt-0 flex items-center justify-between">
-        <span>Shared links</span>
-        <button className="border px-3 py-1.5 rounded-full transition hover:bg-neutral-100 dark:hover:bg-neutral-700">
+    <Box as="ul" divideY="1px" divideColor="border">
+      <Box as="li" py={3} pt={0} display="flex" alignItems="center" justifyContent="space-between">
+        <Box as="span">Shared links</Box>
+        <Button size="sm" variant="outline" borderRadius="full">
           Manage
-        </button>
-      </li>
-      <li className="py-3 flex items-center justify-between">
-        <span>Export data</span>
-        <button className="border px-3 py-1.5 rounded-full transition hover:bg-neutral-100 dark:hover:bg-neutral-700">
+        </Button>
+      </Box>
+      <Box as="li" py={3} display="flex" alignItems="center" justifyContent="space-between">
+        <Box as="span">Export data</Box>
+        <Button size="sm" variant="outline" borderRadius="full">
           Export
-        </button>
-      </li>
-      <li className="py-3 flex items-center justify-between">
-        <span>Delete account</span>
-        <button className="border border-red-600 font-medium bg-red-600 text-white px-3 py-1.5 rounded-full transition hover:bg-red-50 dark:hover:bg-red-950/50 dark:bg-transparent dark:border-red-400 dark:text-red-400 dark:hover:text-red-500">
+        </Button>
+      </Box>
+      <Box as="li" py={3} display="flex" alignItems="center" justifyContent="space-between">
+        <Box as="span">Delete account</Box>
+        <Button
+          size="sm"
+          borderRadius="full"
+          borderWidth="1px"
+          borderColor="red.600"
+          bg="red.600"
+          color="white"
+          _hover={{ bg: "red.50", color: "red.600" }}
+          _dark={{
+            bg: "transparent",
+            borderColor: "red.400",
+            color: "red.400",
+            _hover: { bg: "red.950", color: "red.500" },
+          }}
+        >
           Delete
-        </button>
-      </li>
-    </ul>
+        </Button>
+      </Box>
+    </Box>
   )
 }

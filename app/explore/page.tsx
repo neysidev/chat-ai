@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Box } from "@chakra-ui/react"
 import { PageWrapper } from "@/components/common"
 import Categories from "./_components/Categories"
 import Header from "./_components/Header"
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
 export default function Explore() {
   return (
     <PageWrapper>
-      <div className="py-16">
+      <Box py={16}>
         <Header />
         <Search />
         <Categories />
-      </div>
+      </Box>
     </PageWrapper>
   )
 }
