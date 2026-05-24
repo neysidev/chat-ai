@@ -10,7 +10,8 @@ interface MessagesProps {
 
 export default function Messages({ messages, isLoading }: MessagesProps) {
   return (
-    <section className="flex flex-col flex-1 pb-4 text-sm h-full space-y-4 justify-end">
+    <section className="flex flex-col min-h-full pb-4 text-sm space-y-4">
+      <div className="flex-1" />
       {messages.map(({ role, content }, index) =>
         role === "user" ? (
           <UserMessage key={index}>{content}</UserMessage>

@@ -20,7 +20,7 @@ export default function ChatPage() {
     isScrollVisible,
     handleScroll,
     scrollToBottom,
-  } = useMessagesScroll([messages])
+  } = useMessagesScroll([messages], isLoading)
 
   return (
     <PageWrapper>
@@ -31,7 +31,7 @@ export default function ChatPage() {
         <div
           ref={messagesRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto no-scrollbar"
+          className="flex-1 overflow-y-auto no-scrollbar min-h-0"
         >
           <Messages messages={messages} isLoading={isLoading} />
         </div>
