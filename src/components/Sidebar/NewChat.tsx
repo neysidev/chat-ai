@@ -1,8 +1,8 @@
 import Link from "next/link"
-import Tooltip from "../common/Tooltip"
+import Tooltip from "@/components/common/Tooltip"
 import { useHotkeys } from "react-hotkeys-hook"
 import { useRouter } from "next/navigation"
-import Kbd from "../common/Kbd"
+import Kbd from "@/components/common/Kbd"
 
 export default function NewChat() {
   const router = useRouter()

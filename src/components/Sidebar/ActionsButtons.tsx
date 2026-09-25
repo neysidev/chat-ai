@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation"
 import { useHotkeys } from "react-hotkeys-hook"
 
-import Icon from "../common/Icon"
+import Icon from "@/components/common/Icon"
 import PageLink from "./PageLink"
 import SearchButton from "./SearchButton"
 

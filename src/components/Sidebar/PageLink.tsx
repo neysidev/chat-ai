@@ -1,6 +1,6 @@
 import Link from "next/link"
-import Tooltip from "../common/Tooltip"
-import Kbd from "../common/Kbd"
+import Tooltip from "@/components/common/Tooltip"
+import Kbd from "@/components/common/Kbd"
 
 interface PageLinkProps {
   href?: string

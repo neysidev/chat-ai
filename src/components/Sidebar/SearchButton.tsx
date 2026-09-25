@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 
-import SearchModal from "../modals/SearchModal"
-import Icon from "../common/Icon"
+import SearchModal from "@/components/modals/SearchModal"
+import Icon from "@/components/common/Icon"
 import PageLink from "./PageLink"
 
 export default function SearchButton() {

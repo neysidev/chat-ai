@@ -1,6 +1,6 @@
 import { File, FileType } from "@/stores/messageStore"
 import { formatBytes } from "@/utils/format"
-import Icon from "../common/Icon"
+import Icon from "@/components/common/Icon"
 
 interface AttachmentProps {
   file: File

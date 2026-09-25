@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 
-import SettingsModal from "../modals/SettingsModal"
-import Icon from "../common/Icon"
+import SettingsModal from "@/components/modals/SettingsModal"
+import Icon from "@/components/common/Icon"
 import PageLink from "./PageLink"
 
 export default function SettingsButton() {

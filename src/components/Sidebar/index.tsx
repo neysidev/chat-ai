@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import Tooltip from "../common/Tooltip"
+import Tooltip from "@/components/common/Tooltip"
 import ActionsButtons from "./ActionsButtons"
 import NewChat from "./NewChat"
 import SettingsButton from "./SettingsButton"

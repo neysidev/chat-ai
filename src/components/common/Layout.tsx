@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { FC, PropsWithChildren, useEffect } from "react"
 
 import { useChatStore } from "@/stores/chatStore"
-import Sidebar from "../Sidebar"
+import Sidebar from "@/components/Sidebar"
 import MenuButton from "./MenuButton"
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {

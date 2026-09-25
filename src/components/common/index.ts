@@ -1,8 +1,8 @@
 "use client"
 
-export { default as Attachment } from "../Chat/Attachment"
-export { default as Chat } from "../Chat"
-export { default as ChatNote } from "../Chat/ChatNote"
+export { default as Attachment } from "@/components/Chat/Attachment"
+export { default as Chat } from "@/components/Chat"
+export { default as ChatNote } from "@/components/Chat/ChatNote"
 export { default as Icon } from "./Icon"
 export { default as Kbd } from "./Kbd"
 export { default as Layout } from "./Layout"
